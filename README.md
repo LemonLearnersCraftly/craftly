@@ -1,2 +1,3 @@
 # Craftly
-Our crafting website
+
+Our very own crafting website
