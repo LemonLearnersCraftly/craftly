@@ -1,6 +1,12 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+// This file gives a common layout to all of the pages
+// Adding layout.js in any folder will give a common layout to all of the pages in that folder & subfolder
+// Page.js will have the actual content (React Components, Hooks etc.)
+
+// We can use this file to create our navbar
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],

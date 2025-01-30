@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 
+// process.env is the environment (DO NOT USE EXACT VALUES, USE ENV KEYS) as demonstrated below
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,

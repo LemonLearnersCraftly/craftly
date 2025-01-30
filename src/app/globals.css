@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* We are using Tailwind CSS since it will give us a lot of styles built in that we can use by just adding them as CSS classes.
+  More specific styling or Tailwing overrides can be done here or in other CSS files.
+*/
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
