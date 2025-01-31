@@ -1,13 +1,17 @@
 import { useState } from "react";
-import { addData } from "../utils/firestore";
-import { collection, addDoc } from "firebase/firestore";
+import { addData, updateData } from "../utils/firestore";
+import UserSchema from "../models/Users";
 
 const AddItem = () => {
   const [value, setValue] = useState("");
-
+  const newUser = new UserSchema("sanchitjain", "sanchitjain2003");
+  newUser.setUserId("351lJuPLkCa2TJmPSYXt");
+  newUser.addFollowing("priyanshsar96");
+  const userData = JSON.stringify(newUser);
+  // console.log(JSON.stringify(newUser));
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await addData("something", { name: value });
+    await updateData("Users", newUser.toJSON());
   };
 
   return (
