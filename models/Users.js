@@ -1,6 +1,5 @@
-
 export default class UserSchema {
-  constructor(username, email) {
+  constructor(id = "", username = "", email = "", following = {}, posts = {}) {
     this.id = ""; // if user is not created, else get Id from firestore of user document
     this.username = username; // retrieve from auth
     this.email = email; // retrieve from auth
@@ -86,3 +85,25 @@ export default class UserSchema {
     };
   }
 }
+
+export const UserConverter = {
+  toFirestore: (user) => {
+    return {
+      id: user.id,
+      username: user.username,
+      email: user.email,
+      following: user.following,
+      posts: user.posts,
+    };
+  },
+  fromFirestore: (snapshot, options) => {
+    const data = snapshot.data(options);
+    return new UserSchema(
+      data.id,
+      data.username,
+      data.email,
+      data.following,
+      data.posts
+    );
+  },
+};
