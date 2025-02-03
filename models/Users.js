@@ -1,19 +1,26 @@
-export default class UserSchema {
-  constructor(id = "", username = "", email = "", following = {}, posts = {}) {
+export class UserSchema {
+  constructor(
+    id = "",
+    username = "",
+    email = "",
+    following = null,
+    posts = null
+  ) {
     this.id = ""; // if user is not created, else get Id from firestore of user document
     this.username = username; // retrieve from auth
     this.email = email; // retrieve from auth
-    this.following = {
-      total: 0, // populate from firestore
-      items: [], // populate from firestore
+    this.following = following || {
+      total: 0,
+      items: [],
     };
-    this.posts = {
+    this.posts = posts || {
       total: 0,
       items: [],
     }; // populate from firestore
   }
 
   addFollowing(followingId) {
+    console.log(this.following);
     if (/^-?[\d.]+(?:e-?\d+)?$/.test(this.following.total)) {
       ++this.following.total;
       this.following.items = [
@@ -65,7 +72,7 @@ export default class UserSchema {
     return this.id;
   }
 
-  setUserId(userId) {
+  setId(userId) {
     this.id = userId;
   }
 
@@ -87,13 +94,20 @@ export default class UserSchema {
 }
 
 export const UserConverter = {
+  // Firestore data converters for reading and writing objects of class "UserSchema"
   toFirestore: (user) => {
     return {
       id: user.id,
       username: user.username,
       email: user.email,
-      following: user.following,
-      posts: user.posts,
+      following: {
+        total: user.following.total,
+        items: user.following.items,
+      },
+      posts: {
+        total: user.posts.total,
+        items: user.posts.items,
+      },
     };
   },
   fromFirestore: (snapshot, options) => {
