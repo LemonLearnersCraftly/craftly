@@ -1,4 +1,4 @@
-export default class PostSchema {
+export class PostSchema {
   constructor(
     id = "",
     images = [],
@@ -45,7 +45,7 @@ export default class PostSchema {
     return this.saved;
   }
 
-  setPostId(postId) {
+  setId(postId) {
     this.id = postId;
   }
 
@@ -66,7 +66,11 @@ export default class PostSchema {
   }
 
   addLike() {
-    if (/^-?[\d.]+(?:e-?\d+)?$/.test(this.following.total)) {
+    console.log(typeof this.likes);
+    if (
+      typeof this.likes == "number" ||
+      /^-?[\d.]+(?:e-?\d+)?$/.test(this.likes)
+    ) {
       ++this.likes;
     } else {
       throw new TypeError(
@@ -97,6 +101,7 @@ export default class PostSchema {
 }
 
 export const PostConverter = {
+  // Firestore data converters for reading and writing objects of class "PostSchema"
   toFirestore: (post) => {
     return {
       id: post.id,

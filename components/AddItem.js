@@ -1,17 +1,29 @@
 import { useState } from "react";
 import { addData, updateData } from "../utils/firestore";
-import UserSchema from "../models/Users";
+import { UserSchema, UserConverter } from "../models/Users";
+import { PostSchema, PostConverter } from "../models/Posts";
 
 const AddItem = () => {
   const [value, setValue] = useState("");
-  const newUser = new UserSchema("sanchitjain", "sanchitjain2003");
-  newUser.setUserId("351lJuPLkCa2TJmPSYXt");
-  newUser.addFollowing("priyanshsar96");
+  const newUser = new UserSchema("", "sanchit", "sanchitjain200327");
+  const newPost = new PostSchema(
+    "",
+    ["something.png", "hello.png"],
+    true,
+    "sanchit",
+    0,
+    [],
+    true
+  );
+  newPost.addLike();
+  newUser.addFollowing("priyanshs");
   const userData = JSON.stringify(newUser);
   // console.log(JSON.stringify(newUser));
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await updateData("Users", newUser.toJSON());
+    await addData("Users", newUser, UserConverter);
+    await addData("Posts", newPost, PostConverter);
+    // await updateData("Users", newUser.toJSON());
   };
 
   return (
