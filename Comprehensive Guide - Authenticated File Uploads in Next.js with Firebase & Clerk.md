@@ -9,7 +9,8 @@ I have implemented a basic version.
 2. `/src/libs`: contains the helper functions we can actually use for uploading and retrieving files
 3. `/utils/firebaseConfig.js`: contains updated config to handle storage functionality
 
-> [!DANGER] Currently the implementation works with unauthenticated users.
+> [!CAUTION]
+> Currently the implementation works with unauthenticated users.
 
 ---
 
