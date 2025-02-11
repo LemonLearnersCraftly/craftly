@@ -1,7 +1,7 @@
 "use client";
 
 import AddItem from "../../components/AddItem";
-import { useUser, SignInButton, SignOutButton, UserButton } from "@clerk/nextjs";
+import { useUser, SignInButton, SignUpButton, SignOutButton, UserButton } from "@clerk/nextjs";
 import { useEffect, useState } from "react";
 
 // This file will render components for home page
@@ -32,7 +32,10 @@ export default function Home() {
               <SignOutButton />
             </>
           ) : (
-            <SignInButton />
+            <>
+              <SignInButton />
+              <SignUpButton />
+            </>
           )}
         </div>
       </nav>
