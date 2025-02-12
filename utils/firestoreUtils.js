@@ -4,7 +4,6 @@ import { getStorage, ref, uploadBytes, getDownloadURL, deleteObject } from "@fir
 import firebaseApp from "./firebaseConfig";
 
 
-
 const db = getFirestore(firebaseApp);
 //firebase storage is for storing large files such as images-- used for posts
 const storage = getStorage(firebaseApp);
