@@ -2,6 +2,8 @@ import { getFirestore, collection, increment, query, orderBy, limit, addDoc, get
 import { getAuth, updateEmail, updatePassword, reauthenticateWithCredential, EmailAuthProvider} from "firebase/auth"
 import { getStorage, ref, uploadBytes, getDownloadURL, deleteObject } from "@firebase/storage";
 import firebaseApp from "./firebaseConfig";
+import { PostSchema } from './Posts.js';
+import { PostConverter } from "../models/Posts";
 
 
 const db = getFirestore(firebaseApp);
@@ -32,22 +34,21 @@ export const addPost = async (imageFile, caption) => {
         //need to upload image to firebase storage
         const storageRef = ref(storage, 'posts/${userId}/${imageFile.name}');
         await uploadBytes(storageRef, imageFile);
-
         const imageURL = await getDownloadURL(storageRef);
 
 
         // create post schema
-        const postData = {
-            userId: userId, 
-            username: username, 
-            imageURL: imageURL, 
-            caption: caption, 
-            createdAt: new Date().toISOString(),
-            likes: 0,
-        };
+        const postData = new PostSchema();
+        post.setAssociateUser(username);
+        post.addImage(imageURL);
+        post.setCarousel(false);
+        post.setSave(false);
+        post.addLike();
+        post.addComment([]);
 
         //add new post to database
-        const docRef = await addDoc(collection(db, "posts"), postData);
+        const docRef = await addDoc(collection(db, "posts"), post.toJSON());
+        post.setId(docRef.id);
         console.log("Post created with ID: ", docRef.id);
 
         return { success: true, message: "your post has been uploaded", postId: docRef.id};
@@ -58,17 +59,13 @@ export const addPost = async (imageFile, caption) => {
 };
 
 
-
-
-
-
 //GET- get data
 export const getData = async (collectionName) => {
     try {
         const querySnapshot = await getDocs(collection(db, collectionName));
         const data = [];
-        querySnapshot.forEach((doc) => {
-            data.push({ id: doc.id, ...doc.data() });
+        querySnapshot.forEach((doc) => { 
+            data.push(doc.data()); //using PostConverter
         });
         return data;
     } catch(e) {
@@ -79,13 +76,13 @@ export const getData = async (collectionName) => {
 //~~~populate page with RANDOM posts~~~//
 export const getRecentPosts = async () => {
     try {
-        const postsRef = collection(db, "posts");
-        const recentPostsQuery = query(postsRef, orderBy("timestamp", "desc"), limit(30));
+        const postsRef = collection(db, "posts").withConverter(PostConverter);
+        const recentPostsQuery = query(postsRef, orderBy("createdAt", "desc"), limit(30));
 
         const querySnapshot = await getDocs(recentPostsQuery);
         const posts = [];
         querySnapshot.forEach((doc) => {
-            posts.push({ id: doc.id, ...doc.data()});
+            posts.push(doc.data());
         });
 
         console.log("successfully fetched 30 most recent posts");
@@ -105,7 +102,7 @@ export const getRecentPosts = async () => {
 export const updateData = async (collectionName, docId, updateData) => {
     try {
         const docRef = doc(db, collectionName, docId);
-        updateDoc(docRef, updateData);
+        await updateDoc(docRef, updateData);
         console.log("data upadate successful, id: ", docId);
     } catch (e) {
         console.error("ERROR update failed: ", e);
@@ -168,16 +165,10 @@ export const updateUserProfile = async (userId, newUserName, newEmail, newPasswo
 };
 
 
-
-
-
-
-
-
 //DELETE- delete data
 export const deleteData = async (collectionName, docId) => {
     try {
-        await deleteDoc(doc(db, collectionName, docID));
+        await deleteDoc(doc(db, collectionName, docId));
         console.log("data deleted successfully, id: ", docId);
     } catch (e) {
         console.error("ERROR failed to delete data: ", e);
