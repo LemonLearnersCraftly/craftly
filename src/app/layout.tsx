@@ -17,7 +17,7 @@ import {
         <html lang="en">
           <body>
             <SignedOut>
-              <SignInButton />
+  
             </SignedOut>
             <SignedIn>
               <UserButton />
