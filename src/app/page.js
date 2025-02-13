@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Feed from "../../components/Feed";
 import Header from "../../components/Header";
 import Articles from "../../components/Articles";
+import OrbitingCirclesDemo from "@/components/orbit/orbit";
 import "../../styles/Homepage.css";
 import { getRecentPosts } from "../../utils/firestoreUtils";
 import AddItem from "../../components/AddItem";
@@ -31,6 +32,7 @@ const HomePage = () => {
   return (
     <div className="homepage">
       <Header />
+      <OrbitingCirclesDemo />
       <div className="content">
         <div className="feed-section">
           <Feed posts={posts} />
