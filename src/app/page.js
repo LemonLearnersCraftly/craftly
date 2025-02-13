@@ -8,6 +8,7 @@ import OrbitingCirclesDemo from "@/components/orbit/orbit";
 import "../../styles/Homepage.css";
 import { getRecentPosts } from "../../utils/firestoreUtils";
 import AddItem from "../../components/AddItem";
+import LandingPage from "@/components/HomePage";
 import {
   useUser,
   SignInButton,
@@ -16,32 +17,40 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 
+// const HomePage = () => {
+//   const [posts, setPosts] = useState([]);
+
+//   useEffect(() => {
+//     const fetchPosts = async () => {
+//       const result = await getRecentPosts();
+//       if (result.success) {
+//         setPosts(result.posts);
+//       }
+//     };
+//     fetchPosts();
+//   }, []);
+
+//   return (
+//     <div className="homepage">
+//       <Header />
+//       <OrbitingCirclesDemo />
+//       <div className="content">
+//         <div className="feed-section">
+//           <Feed posts={posts} />
+//         </div>
+//         <div className="articles-section">
+//           <Articles />
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
 const HomePage = () => {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const result = await getRecentPosts();
-      if (result.success) {
-        setPosts(result.posts);
-      }
-    };
-    fetchPosts();
-  }, []);
-
   return (
-    <div className="homepage">
-      <Header />
-      <OrbitingCirclesDemo />
-      <div className="content">
-        <div className="feed-section">
-          <Feed posts={posts} />
-        </div>
-        <div className="articles-section">
-          <Articles />
-        </div>
-      </div>
-    </div>
+    <>
+      <LandingPage />
+    </>
   );
 };
 

@@ -10,12 +10,22 @@ export function OrbitingCircles({
   path = true,
   iconSize = 30,
   speed = 1,
+  centerComponent,
   ...props
 }) {
   const calculatedDuration = duration / speed;
 
   return (
-    <>
+    <div
+      className="relative flex items-center justify-center"
+      style={{ width: radius * 2, height: radius * 2 }}
+    >
+      {/* Center Component */}
+      {centerComponent && (
+        <div className="absolute flex items-center justify-center">
+          {centerComponent}
+        </div>
+      )}
       {path && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -52,6 +62,6 @@ export function OrbitingCircles({
           </div>
         );
       })}
-    </>
+    </div>
   );
 }
