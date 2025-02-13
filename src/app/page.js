@@ -16,33 +16,40 @@ import {
 } from "@clerk/nextjs";
 
 const HomePage = () => {
-    const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
+  const [isArticlesHidden, setIsArticlesHidden] = useState(false);
 
-    useEffect(() => {
-        const fetchPosts = async () => {
-            const result = await getRecentPosts();
-            if(result.success) {
-                setPosts(result.posts);
-            }
-        };
-        fetchPosts();
-    }, [])
+  useEffect(() => {
+      const fetchPosts = async () => {
+          const result = await getRecentPosts();
+          if(result.success) {
+              setPosts(result.posts);
+          }
+      };
+      fetchPosts();
+  }, []);
 
-    return (
-        <div className="homepage">
-            <Header />
-            <div className='content'>
-                <div className="feed-section">
-                    <Feed posts={posts}/>
-                </div>
-                <div className='articles-section'>
-                    <Articles />
-                </div>
-            </div>
-        </div>
-    );
+  const handleToggleArticles = () => {
+      setIsArticlesHidden(!isArticlesHidden);
+  };
+
+  return (
+      <div className="homepage">
+          <Header />
+          <div className='content'>
+              <div className={`feed-section ${isArticlesHidden ? 'full-width' : ''}`}>
+                  <Feed posts={posts}/>
+              </div>
+              <div className={`articles-section ${isArticlesHidden ? 'hidden' : ''}`}>
+              <Articles />
+              </div>
+              <button className="toggle-button" onClick={handleToggleArticles}>
+                  <img src={isArticlesHidden ? '/showArticles.jpg' : '/hideArticles.jpg'} />
+              </button>
+          </div>
+      </div>
+  );
 };
-
 // This function will render components for home page
 // Work in auth folder for authentication: signin, register, signout
 // Work in home folder (Debatable) to create a more specific layout
