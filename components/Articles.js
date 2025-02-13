@@ -17,7 +17,6 @@ const Articles = () => {
 
     return (
         <div className="articles">
-        <div className="article-list">
             {articles.length > 0 ? (
                 articles.map((article) => (
                     <div key={article.id} className="article">
@@ -29,7 +28,6 @@ const Articles = () => {
             ) : (
                 <p>No articles available</p> // Display a message if no articles are found
             )}
-        </div>
         </div>
     );
 };

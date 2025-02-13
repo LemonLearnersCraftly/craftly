@@ -1,26 +1,11 @@
-.articles {
-    width: 25%; 
-    margin: 20px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    height: 100%;
-    overflow-y: auto;
-}
-
-.articles-list {
-    display: flex;
-    flex-direction: column; 
-    gap: 15px;
-    padding-bottom: 10px;
-}
-
 .article {
     display: flex;        
     flex-direction: column;  
     align-items: center;     
     text-align: center;
     cursor: pointer;
+    padding: 10px;
+    width: 90%;
 }
 
 .article-image {
@@ -29,8 +14,9 @@
     object-fit: cover;
     border-radius: 8px;
     cursor: pointer;
+    width: 100%;
 }
 
 .article-image:hover {
-    opacity: 0.8; 
+    opacity: 0.8;
 }

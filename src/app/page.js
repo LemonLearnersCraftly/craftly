@@ -15,32 +15,32 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 
-export default const HomePage = () => {
-  const [posts, setPosts] = useState([]);
+const HomePage = () => {
+    const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const result = await getRecentPosts();
-      if (result.success) {
-        setPosts(result.posts);
-      }
-    };
-    fetchPosts();
-  }, []);
+    useEffect(() => {
+        const fetchPosts = async () => {
+            const result = await getRecentPosts();
+            if(result.success) {
+                setPosts(result.posts);
+            }
+        };
+        fetchPosts();
+    }, [])
 
-  return (
-    <div className="homepage">
-      <Header />
-      <div className="content">
-        <div className="feed-section">
-          <Feed posts={posts} />
+    return (
+        <div className="homepage">
+            <Header />
+            <div className='content'>
+                <div className="feed-section">
+                    <Feed posts={posts}/>
+                </div>
+                <div className='articles-section'>
+                    <Articles />
+                </div>
+            </div>
         </div>
-        <div className="articles-section">
-          <Articles />
-        </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 // This function will render components for home page

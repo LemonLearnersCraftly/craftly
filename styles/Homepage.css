@@ -1,27 +1,60 @@
 .homepage {
     background-color: #89C28B;
-    min-height: 100vh;
+    height: 100vh; /* Set height to viewport height */
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .content {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 5px;
+    width: 100%;
+    position: relative
 }
 
 .feed-section {
-    flex: 3;
+    flex: 2;
     padding-right: 20px;
+    transition: flex 0.3s ease; 
+}
+
+.articles-section {
+    flex: 1; /* Adjusted flex value for articles section to take 1/3 of the space */
+    padding: 0;
+    margin: 0;
+    background-color: #FFC7C7;
+    display: flex;
+    flex-direction: column; /* Ensure it stacks correctly */
+    align-items: flex-start;
+    width: 100%;
+    height: calc(100vh - 100px); /* Set height based on viewport height minus header height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    transition: flex 0.3s ease, max-width 0.3s ease; /* Smooth transition */
+}
+
+.toggle-button {
+    position: absolute;
+    top: 10px;
+    left: calc(100% - 50px);
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 10;
 }
 
 
-.articles-section {
-    flex: 1; 
-    background-color: #FFC7C7; 
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-    height: auto;
+.toggle-button img {
+    width: 20px;
+    height: 20px;
+}
+.hidden {
+    display: none; 
+}
+
+.full-width {
+    flex: 3; 
 }
