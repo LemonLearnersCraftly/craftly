@@ -11,8 +11,6 @@
   "dependencies": {
     "@clerk/nextjs": "^6.10.6",
     "@firebase/firestore": "^4.7.6",
-    "@types/react": "^19.0.8",
-    "@types/react-dom": "^19.0.3",
     "firebase": "^11.2.0",
     "next": "15.1.6",
     "react": "^19.0.0",
