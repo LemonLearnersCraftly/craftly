@@ -14,6 +14,8 @@
 .profile {
     width: 100px;
     height: auto;
+    margin-left: 5px; 
+
 }
 
 .search-bar {
@@ -21,6 +23,11 @@
     padding: 5px;
 }
 
+.button {
+    display: flex;
+    align-items: center;
+  }
+  
 .signUp-button {
     padding: 5px;
     background-color: #FFA07A;
@@ -37,3 +44,12 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+.home-button {
+    padding: 5px;
+    background-color: #FFA07A;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px; 
+    border-radius: 5px;
+  }

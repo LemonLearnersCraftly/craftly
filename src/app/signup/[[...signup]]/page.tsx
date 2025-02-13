@@ -8,32 +8,33 @@ export default function Page() {
       <img src="/logo.jpg" className="logo" />
       <input type="text" placeholder="search..." className="search-bar" />
 
-        <SignedOut>
-          {/* Show Sign In and Sign Up buttons when user is NOT signed in */}
-          <div className="signUp-button">
-            <SignUpButton>Sign Up</SignUpButton>
+      <div className="button-group">
+          <SignedOut>
+            {/* Show Sign In and Sign Up buttons when user is NOT signed in */}
+            <div className="signUp-button">
+              <SignUpButton>Sign Up</SignUpButton>
+            </div>
+            <div className="signIn-button">
+              <SignInButton>Sign In</SignInButton>
+            </div>
+          </SignedOut>
+
+          <SignedIn>
+            {/* Show User Button when signed in (opens profile & sign-out options) */}
+            <UserButton afterSignOutUrl="/" />
+          </SignedIn>
+
+          <Link href="/" className="home-button">Home</Link>
+          <div className="profile">
+            <button>
+              <img src="/profile.jpg" alt="Profile" />
+            </button>
           </div>
-          <div className="signIn-button">
-            <SignInButton>Sign In</SignInButton>
-          </div>
-        </SignedOut>
+        </div>
+      </header>
+      <div className="min-h-screen flex flex-col">
 
-        <SignedIn>
-          {/* Show User Button when signed in (opens profile & sign-out options) */}
-          <UserButton afterSignOutUrl="/" />
-        </SignedIn>
-
-
-      <Link href="/" className="home-button">Home</Link>
-      <div className="profile">
-        <button>
-          <img src="/profile.jpg"></img>
-        </button>
-      </div>
-    </header><div className="min-h-screen flex flex-col">
-
-
-        {/* Sign-In Section */}
+        {/* Sign-Up Section */}
         <div className="signUp">
           <SignUp />
         </div>

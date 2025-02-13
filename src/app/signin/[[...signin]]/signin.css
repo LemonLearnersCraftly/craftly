@@ -23,6 +23,8 @@
 .profile {
     width: 100px;
     height: auto;
+    margin-left: 2px;
+    display: flex;
 }
 
 .search-bar {
@@ -30,27 +32,38 @@
     padding: 5px;
 }
 
-.home-button{
-  padding: 5px;
-  background-color: #FFA07A;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-right: 10px;
+.button-group {
+  display: flex;
+  align-items: center;
 }
 
 .signUp-button {
-    padding: 5px;
-    background-color: #FFA07A;
-    border: none;
-    cursor: pointer;
-    margin-right: 5px;
+  padding: 5px;
+  background-color: #FFA07A;
+  border: none;
+  cursor: pointer;
+  margin-right: 5px;
 }
 
 .signIn-button {
-    padding: 5px;
-    background-color: #FFA07A;
-    border: none;
-    cursor: pointer;
+  padding: 5px;
+  background-color: #FFA07A;
+  border: none;
+  cursor: pointer;
+  margin-right: 5px; 
 }
-  
+
+.home-button {
+  padding: 5px;
+  background-color: #FFA07A;
+  border: none;
+  cursor: pointer;
+  margin-right: 5px; 
+  border-radius: 5px;
+}
+
+.profile {
+  width: 100px;
+  height: auto;
+  margin-left: 5px; 
+}
