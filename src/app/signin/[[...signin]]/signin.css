@@ -1,8 +1,56 @@
-.signin-container {
+.signIn {
     padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: #89C28B;
   }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #92DA92;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+.profile {
+    width: 100px;
+    height: auto;
+}
+
+.search-bar {
+    width: 300px;
+    padding: 5px;
+}
+
+.home-button{
+  padding: 5px;
+  background-color: #FFA07A;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.signUp-button {
+    padding: 5px;
+    background-color: #FFA07A;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.signIn-button {
+    padding: 5px;
+    background-color: #FFA07A;
+    border: none;
+    cursor: pointer;
+}
   

@@ -1,20 +1,43 @@
-import { SignUp } from '@clerk/nextjs'
+import { SignInButton, SignUpButton, SignedIn, SignedOut, UserButton, SignUp } from "@clerk/nextjs";
 import './signup.css';  
 import Link from 'next/link';
 
 export default function Page() {
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Navbar */}
-      <nav className="w-full p-4 bg-gray-800 text-white flex justify-between">
-        <h1 className="text-xl font-bold">MyApp</h1>
-        <Link href="/" className="text-white hover:underline">Home</Link>
-      </nav>
-      
-      <div className="flex flex-col justify-center items-center flex-grow">
-        <SignUp />
-     </div>
-    </div>
+<><header className="header">
+      <img src="/logo.jpg" className="logo" />
+      <input type="text" placeholder="search..." className="search-bar" />
+
+        <SignedOut>
+          {/* Show Sign In and Sign Up buttons when user is NOT signed in */}
+          <div className="signUp-button">
+            <SignUpButton>Sign Up</SignUpButton>
+          </div>
+          <div className="signIn-button">
+            <SignInButton>Sign In</SignInButton>
+          </div>
+        </SignedOut>
+
+        <SignedIn>
+          {/* Show User Button when signed in (opens profile & sign-out options) */}
+          <UserButton afterSignOutUrl="/" />
+        </SignedIn>
+
+
+      <Link href="/" className="home-button">Home</Link>
+      <div className="profile">
+        <button>
+          <img src="/profile.jpg"></img>
+        </button>
+      </div>
+    </header><div className="min-h-screen flex flex-col">
+
+
+        {/* Sign-In Section */}
+        <div className="signUp">
+          <SignUp />
+        </div>
+      </div></>
 
   );
 }

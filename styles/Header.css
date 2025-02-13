@@ -20,3 +20,20 @@
     width: 300px;
     padding: 5px;
 }
+
+.signUp-button {
+    padding: 5px;
+    background-color: #FFA07A;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.signIn-button {
+    padding: 5px;
+    background-color: #FFA07A;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
