@@ -1,22 +1,36 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #92DA92;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #92da92;
 }
 
 .logo {
-    width: 100px;
-    height: auto;
+  width: 100px;
+  height: auto;
 }
 
 .profile {
-    width: 100px;
-    height: auto;
+  width: 100px;
+  height: auto;
 }
 
 .search-bar {
-    width: 300px;
-    padding: 5px;
+  width: 400px;
+  padding: 20px;
+  background-color: #92da92;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  height: 100%;
+  color: black;
+}
+
+.search-bar::placeholder {
+  color: black;
+  font-size: 20px;
+}
+
+.search-bar:focus {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
