@@ -1,0 +1,27 @@
+.homepage {
+    background-color: #89C28B;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.feed-section {
+    flex: 3;
+    padding-right: 20px;
+}
+
+
+.articles-section {
+    flex: 1; 
+    background-color: #FFC7C7; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    height: auto;
+}

@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #92DA92;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+.profile {
+    width: 100px;
+    height: auto;
+}
+
+.search-bar {
+    width: 300px;
+    padding: 5px;
+}

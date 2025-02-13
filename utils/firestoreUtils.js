@@ -1,8 +1,8 @@
-import { getFirestore, collection, increment, query, orderBy, limit, addDoc, getDoc, updateDoc, doc, deleteDoc } from "@firebase/firestore";
+import { getFirestore, collection, increment, query, orderBy, limit, addDoc, getDocs, updateDoc, doc, deleteDoc } from "@firebase/firestore";
 import { getAuth, updateEmail, updatePassword, reauthenticateWithCredential, EmailAuthProvider} from "firebase/auth"
 import { getStorage, ref, uploadBytes, getDownloadURL, deleteObject } from "@firebase/storage";
 import firebaseApp from "./firebaseConfig";
-import { PostSchema } from './Posts.js';
+import { PostSchema } from "../models/Posts";
 import { PostConverter } from "../models/Posts";
 
 
