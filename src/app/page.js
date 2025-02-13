@@ -15,7 +15,7 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 
-export default const HomePage = () => {
+const HomePage = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -97,3 +97,5 @@ function Home() {
     </div>
   );
 }
+
+export default HomePage;
