@@ -320,11 +320,8 @@ export default function LandingPage() {
                         author: "Ceramic Arts",
                       },
                     ].map((article, i) => (
-                      <div className="bg-white rounded-lg">
-                        <div
-                          key={i}
-                          className="flex items-start space-x-3  p-3 "
-                        >
+                      <div key={i} className="bg-white rounded-lg">
+                        <div className="flex items-start space-x-3  p-3 ">
                           <img
                             alt={article.title}
                             className="rounded w-12 h-12 object-cover"
