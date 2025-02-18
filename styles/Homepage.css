@@ -1,5 +1,5 @@
 .homepage {
-  background-color: #89c28b;
+  background-color: hsl(var(--surface-100));
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -9,46 +9,56 @@
 .content {
   display: flex;
   justify-content: space-between;
-  padding: 5px;
+  padding: 1.25rem;
   width: 100%;
   position: relative;
+  gap: 1.5rem;
 }
 
 .feed-section {
   flex: 2;
-  padding-right: 20px;
+  background-color: hsl(var(--surface-50));
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px hsl(var(--surface-200) / 0.1);
   transition: flex 0.3s ease;
 }
 
 .articles-section {
-  flex: 1;
-  padding: 0;
-  margin: 0;
-  background-color: #ffc7c7;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-  height: calc(100vh - 10px);
-  overflow-y: auto;
-  transition: flex 0.3s ease, max-width 0.3s ease;
+  /* background: hsl(var(--surface-100)); */
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  /* display: grid; */
+  width: 30%;
+  gap: 1.5rem;
+}
+
+.articles-section:hover .article:not(:hover) {
+  opacity: 0.9;
 }
 
 .toggle-button {
   position: absolute;
-  top: 10px;
-  left: calc(100% - 50px);
-  padding: 10px;
-  background-color: transparent;
-  border: none;
+  top: 0.3rem;
+  left: calc(100% - 3.5rem);
+  padding: 0.75rem;
+  background-color: hsl(var(--surface-50));
+  border: 1px solid hsl(var(--border));
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: calc(var(--radius) - 4px);
   z-index: 10;
+  box-shadow: 0 2px 4px hsl(var(--surface-200) / 0.2);
+  transition: all 0.2s ease;
+}
+
+.toggle-button:hover {
+  background-color: hsl(var(--surface-100));
 }
 
 .toggle-button img {
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
+  filter: brightness(0.8);
 }
 
 .hidden {
@@ -57,4 +67,20 @@
 
 .full-width {
   flex: 3;
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Improved Article Card Styling */
+.articles-section article {
+  background: hsl(var(--surface-50));
+  border: 1px solid hsl(var(--border));
+  border-radius: calc(var(--radius) - 4px);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.articles-section article:hover {
+  transform: translateY(-2px);
 }

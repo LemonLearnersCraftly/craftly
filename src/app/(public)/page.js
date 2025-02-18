@@ -19,14 +19,14 @@ import { OrbitingCircles } from "@/components/magicui/orbiting-circles";
 
 export default function LandingPage() {
   return (
-    <div className="flex min-h-screen flex-col bg-custom-lavender">
+    <div className="flex min-h-screen flex-col bg-gradient-to-br from-surface-50 to-primary-50/20">
       <main className="flex-1">
         {/* Hero Section */}
         <section className="container px-4 md:px-6 py-12 md:py-24 lg:py-32">
           <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
             <div className="flex flex-col justify-center space-y-4">
-              <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-custom-sage">
+              <div className="space-y-10">
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-primary-600">
                   Craft, Connect, Create Together
                 </h1>
                 <p className="max-w-[600px] text-gray-600 md:text-xl">
@@ -38,20 +38,20 @@ export default function LandingPage() {
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
                 <Button
                   size="lg"
-                  className="bg-custom-mint hover:bg-custom-sage text-white"
+                  className="bg-primary-500 hover:bg-primary-400"
                 >
                   Start Creating
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-custom-purple text-custom-purple hover:bg-custom-purple hover:text-white"
+                  className="border-accent-400 text-accent-500 hover:bg-accent-50"
                 >
                   Explore Projects
                 </Button>
               </div>
             </div>
-            <div className="grid gap-4 grid-cols-2">
+            <div className="grid gap-4 grid-cols-2 bg-gradient-to-b from-surface-50 to-surface-100 p-6 rounded-3xl">
               {[
                 {
                   alt: "Knitting project",
@@ -88,7 +88,7 @@ export default function LandingPage() {
         {/* Features Section */}
         <section className="container px-4 md:px-6 py-12 md:py-24 lg:py-32 bg-white">
           <div className="text-center space-y-4 mb-12">
-            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl text-custom-sage">
+            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl text-primary-500">
               Your Creative Journey Starts Here
             </h2>
             <p className="mx-auto max-w-[600px] text-gray-600 md:text-xl">
@@ -138,12 +138,12 @@ export default function LandingPage() {
             ].map((feature, i) => (
               <div
                 key={i}
-                className="flex flex-col items-center text-center space-y-4 p-6 rounded-xl bg-custom-lavender"
+                className="flex flex-col items-center text-center space-y-4 p-6 rounded-xl bg-surface-100"
               >
-                <div className="rounded-full bg-white p-4">
-                  <feature.icon className="h-6 w-6 text-custom-mint" />
+                <div className="rounded-full bg-surface-50 p-4">
+                  <feature.icon className="h-6 w-6 text-primary-400" />
                 </div>
-                <h3 className="text-xl font-bold text-custom-sage">
+                <h3 className="text-xl font-bold text-primary-500">
                   {feature.title}
                 </h3>
                 <p className="text-gray-600">{feature.description}</p>
@@ -156,7 +156,7 @@ export default function LandingPage() {
         <section className="container px-4 md:px-6 py-12 md:py-24 lg:py-32">
           <div className="relative">
             <div className="text-center space-y-4 mb-12">
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl text-custom-sage">
+              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl text-primary-500">
                 Your Creative Space
               </h2>
               <p className="mx-auto max-w-[600px] text-gray-600 md:text-xl">
@@ -164,10 +164,10 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div className="mx-auto max-w-5xl rounded-xl border bg-white shadow-2xl">
+            <div className="mx-auto max-w-5xl rounded-xl border bg-white shadow-surface">
               <div className="grid md:grid-cols-[1fr_2fr_1fr] gap-6 p-6">
                 {/* Profile Section */}
-                <div className="space-y-4 p-4 rounded-lg bg-custom-lavender">
+                <div className="space-y-4 p-4 rounded-lg bg-surface-100 border border-surface-200">
                   <div className="flex flex-col items-center space-y-2">
                     <div className="relative flex w-full flex-col items-center justify-center p-5">
                       <OrbitingCircles
@@ -182,20 +182,20 @@ export default function LandingPage() {
                         }
                       >
                         {/* Wrapped Icons in a Background Container */}
-                        <div className="flex items-center justify-center w-9 h-9 rounded-full bg-primary">
-                          <Needle className="w-5 h-5 text-white" />
+                        <div className="flex items-center justify-center w-9 h-9 rounded-full bg-primary-400">
+                          <Needle className="w-5 h-5 text-primary-50" />
                         </div>
-                        <div className="flex items-center justify-center w-9 h-9 rounded-full bg-secondary">
+                        <div className="flex items-center justify-center w-9 h-9 rounded-full bg-secondary-400">
                           <PenTool className="w-5 h-5 text-white" />
                         </div>
-                        <div className="flex items-center justify-center w-9 h-9 rounded-full bg-purple-700">
+                        <div className="flex items-center justify-center w-9 h-9 rounded-full bg-accent-400">
                           <Palette className="w-5 h-5 text-white" />
                         </div>
                       </OrbitingCircles>
                     </div>
 
                     <div className="text-center">
-                      <h3 className="font-semibold text-custom-sage">
+                      <h3 className="font-semibold text-primary-500">
                         Emma Thompson
                       </h3>
                       <p className="text-sm text-gray-600 font-mono">
@@ -210,18 +210,18 @@ export default function LandingPage() {
                     <div className="flex gap-4 text-sm text-gray-600">
                       <div className="text-center">
                         <p className="font-black">Following</p>
-                        <p className="font-semibold text-custom-sage">1.2k</p>
+                        <p className="font-semibold text-primary-500">1.2k</p>
                       </div>
                       <div className="text-center">
                         <p className="font-black">Followers</p>
-                        <p className="font-semibold text-custom-sage">3.5k</p>
+                        <p className="font-semibold text-primary-500">3.5k</p>
                       </div>
                     </div>
                     <div className="flex flex-wrap gap-2 justify-center">
                       {[
                         { text: "Knitting", color: "bg-primary" },
                         { text: "Painting", color: "bg-secondary" },
-                        { text: "DIY", color: "bg-purple-700" },
+                        { text: "DIY", color: "bg-accent-400" },
                       ].map((tag, i) => (
                         <span
                           key={tag.text}
@@ -236,7 +236,7 @@ export default function LandingPage() {
 
                 {/* Feed Preview */}
                 <div className="space-y-6">
-                  <div className="rounded-lg border bg-white p-4">
+                  <div className="rounded-xl p-4 border border-surface-200 bg-surface-50">
                     <div className="flex items-center space-x-4 mb-4">
                       <img
                         alt="User"
@@ -244,7 +244,7 @@ export default function LandingPage() {
                         src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=40&h=40&q=90"
                       />
                       <div>
-                        <p className="font-semibold text-custom-sage">
+                        <p className="font-semibold text-primary-500">
                           Sophie's Crafts
                         </p>
                         <p className="text-sm text-gray-600">
@@ -276,7 +276,7 @@ export default function LandingPage() {
                           <Button
                             key={i}
                             size="icon"
-                            className={`flex items-center justify-center gap-1 text-black bg-white py-2 px-8 hover:bg-custom-lavender`}
+                            className={`flex items-center justify-center gap-1 text-foreground bg-surface-100 hover:bg-surface-200 py-2 px-8`}
                           >
                             <action.icon className="h-5 w-5" />
                             {action.text && (
@@ -292,8 +292,8 @@ export default function LandingPage() {
                 </div>
 
                 {/* Articles Preview */}
-                <div className="space-y-4 p-4 rounded-lg bg-custom-lavender">
-                  <h4 className="font-semibold text-custom-sage">
+                <div className="space-y-4 p-4 rounded-lg bg-surface-100 border border-surface-200">
+                  <h4 className="font-semibold text-primary-500">
                     Trending Articles
                   </h4>
                   <div className="space-y-4">
@@ -320,7 +320,10 @@ export default function LandingPage() {
                         author: "Ceramic Arts",
                       },
                     ].map((article, i) => (
-                      <div key={i} className="bg-white rounded-lg">
+                      <div
+                        key={i}
+                        className="bg-surface-50 rounded-lg border border-surface-200"
+                      >
                         <div className="flex items-start space-x-3  p-3 ">
                           <img
                             alt={article.title}
@@ -328,7 +331,7 @@ export default function LandingPage() {
                             src={article.image || "/placeholder.svg"}
                           />
                           <div>
-                            <p className="text-sm font-medium text-custom-sage">
+                            <p className="text-sm font-medium text-primary-500">
                               {article.title}
                             </p>
                           </div>
@@ -348,7 +351,7 @@ export default function LandingPage() {
         {/* CTA Section */}
         <section className="container px-4 md:px-6 py-12 md:py-24 lg:py-20 bg-white">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl text-custom-sage">
+            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl text-primary-500">
               Join Our Creative Community
             </h2>
             <p className="mx-auto max-w-[600px] text-gray-600 mt-4 md:text-xl">
@@ -357,7 +360,7 @@ export default function LandingPage() {
             </p>
             <Button
               size="lg"
-              className="mt-6 bg-custom-mint hover:bg-custom-sage text-white"
+              className="mt-6 bg-primary-500 hover:bg-primary-400 text-white"
             >
               Join Craftly Today
             </Button>

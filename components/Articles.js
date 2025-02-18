@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/Articles.css";
+import { Card } from "./ui/card";
 
 const Articles = () => {
   const articles = [
@@ -19,11 +20,17 @@ const Articles = () => {
     <div className="articles">
       {articles.length > 0 ? (
         articles.map((article) => (
-          <div key={article.id} className="article">
+          <Card
+            key={article.id}
+            className="article bg-primary-200 hover:bg-primary-300 border-border"
+          >
             <a href={article.link}>
-              <img src={article.image} className="article-image" />
+              <img
+                src={article.image}
+                className="article-image border border-surface-200"
+              />
             </a>
-          </div>
+          </Card>
         ))
       ) : (
         <p>No articles available</p> // Display a message if no articles are found

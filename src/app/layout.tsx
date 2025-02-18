@@ -42,27 +42,7 @@ const Header = ({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body>
-          {children}
-          <footer className="border-t bg-white">
-            <div className="container  md:px-6 py-2">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <img
-                    src="./logo.png"
-                    className="h-14 w-14 border-2 border-gray-800 rounded-full"
-                  />
-                  <span className="text-xl font-bold text-custom-sage">
-                    Craftly
-                  </span>
-                </div>
-                <p className="text-sm text-gray-600">
-                  © {new Date().getFullYear()} Craftly. All rights reserved.
-                </p>
-              </div>
-            </div>
-          </footer>
-        </body>
+        <body>{children}</body>
       </html>
     </ClerkProvider>
   );

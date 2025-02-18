@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: #92da92;
+  background-color: "bg-primary-400";
 }
 
 .logo {
@@ -17,20 +17,47 @@
 }
 
 .search-bar {
-  width: 400px;
-  padding: 20px;
-  background-color: #92da92;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
-  height: 100%;
-  color: black;
-}
-
-.search-bar::placeholder {
-  color: black;
-  font-size: 20px;
+  width: 100%; /* Width set to 40% of the nav */
+  height: 50%; /* 50% of the nav height */
+  background-color: hsl(var(--background)); /* Matches nav background */
+  color: hsl(var(--primary));
+  padding: 0.5rem 1rem;
+  border: none; /* No default border */
+  outline: none;
+  font-size: 1rem;
+  text-align: left;
+  border-radius: calc(var(--radius) - 4px); /* Rounded corners */
+  transition: all 0.3s ease; /* Smooth transitions */
+  position: relative; /* For pseudo-element positioning */
 }
 
 .search-bar:focus {
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  background-color: hsl(var(--primary-200)); /* Focus background */
+  color: hsl(var(--primary-500)); /* Focus text color */
+  box-shadow: 0 6px 8px hsl(var(--primary) / 0.15); /* Focus shadow */
+}
+
+.search-bar::placeholder {
+  color: hsl(var(--foreground) / 0.5); /* Placeholder color */
+  transition: all 0.3s ease; /* Smooth transition for placeholder */
+}
+
+.search-bar:focus::placeholder {
+  color: hsl(var(--primary-500)); /* Placeholder changes on focus */
+}
+
+/* Underline effect under placeholder */
+.search-bar::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0; /* Default width to 0 */
+  background-color: hsl(var(--primary-500)); /* Line color */
+  transition: width 0.3s ease; /* Expand effect */
+}
+
+.search-bar:focus::after {
+  width: 100%; /* Expands border to full input width */
 }

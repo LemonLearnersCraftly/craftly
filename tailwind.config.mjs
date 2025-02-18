@@ -1,14 +1,37 @@
-const colors = {
-  custom: {
-    mint: "#92DA92",
-    sage: "#89C28B",
-    purple: "#999EFF",
-    pink: "#FFC7C7",
-    lavender: "#ece6f0",
+// tailwind.config.mjs
+const brandColors = {
+  primary: {
+    50: "#faf6f2",
+    100: "#f4e9dd",
+    200: "#e8d2bb",
+    300: "#d2b495",
+    400: "#b8916f",
+    500: "#9d7051",
+  },
+  secondary: {
+    50: "#f3f5f4",
+    100: "#e4e8e6",
+    200: "#cad2cf",
+    300: "#a5b2ad",
+    400: "#768982",
+    500: "#4d625b",
+  },
+  accent: {
+    50: "#fff3f3",
+    100: "#ffe6e6",
+    200: "#ffc7c6",
+    300: "#ff9c99",
+    400: "#f76f6c",
+    500: "#e53d3d",
+  },
+  surface: {
+    50: "#ffffff",
+    100: "#f8f8f8",
+    200: "#ececec",
+    300: "#e0e0e0",
   },
 };
 
-/** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ["class"],
   content: [
@@ -26,6 +49,7 @@ export default {
     },
     extend: {
       colors: {
+        // Core Shadcn colors
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -36,21 +60,30 @@ export default {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
         },
+        // Updated brand colors
         primary: {
-          DEFAULT: colors.custom.mint,
+          DEFAULT: brandColors.primary[500],
+          ...brandColors.primary,
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: colors.custom.purple,
+          DEFAULT: brandColors.secondary[500],
+          ...brandColors.secondary,
           foreground: "hsl(var(--secondary-foreground))",
         },
+        accent: {
+          DEFAULT: brandColors.accent[400],
+          ...brandColors.accent,
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        surface: {
+          DEFAULT: brandColors.surface[50],
+          ...brandColors.surface,
+        },
+        // Maintain essential utilities
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: colors.custom.pink,
-          foreground: "hsl(var(--accent-foreground))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -59,14 +92,14 @@ export default {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
+        // Chart colors (updated to match palette)
         chart: {
-          1: "hsl(var(--chart-1))",
-          2: "hsl(var(--chart-2))",
-          3: "hsl(var(--chart-3))",
-          4: "hsl(var(--chart-4))",
-          5: "hsl(var(--chart-5))",
+          1: "hsl(23 37% 85%)", // Primary light
+          2: "hsl(158 10% 80%)", // Secondary light
+          3: "hsl(3 90% 90%)", // Accent light
+          4: "hsl(23 37% 70%)", // Primary medium
+          5: "hsl(158 10% 60%)", // Secondary medium
         },
-        ...colors,
       },
       borderRadius: {
         lg: "var(--radius)",

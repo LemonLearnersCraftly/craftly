@@ -40,27 +40,27 @@ const Header = ({
 }>) => {
   return (
     <ClerkProvider>
-      <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+      <header className="sticky top-0 z-50 w-full border-b bg-surface-100 backdrop-blur">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
             <img
               src="./logo.png"
-              className="h-14 w-14 border-2 border-gray-800 rounded-full"
+              className="h-14 w-14 border-2 border-primary-500 rounded-full"
             />
-            <span className="text-xl font-bold text-custom-sage">Craftly</span>
+            <span className="text-xl font-bold text-primary-500">Craftly</span>
           </div>
 
           <div className="flex gap-4">
             <SignedOut>
               <SignInButton fallbackRedirectUrl="/feed">
-                <ShimmerButton className="shadow-2xl">
+                <ShimmerButton className="bg-surface-100 hover:bg-surface-200 text-foreground shadow-surface">
                   <span className="whitespace-pre-wrap text-center text-sm font-black leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10">
                     Log In
                   </span>
                 </ShimmerButton>
               </SignInButton>
               <SignUpButton signInFallbackRedirectUrl="/feed">
-                <Button className="bg-custom-mint hover:bg-custom-sage text-white font-black">
+                <Button className="bg-primary-500 hover:bg-primary-400 text-white font-black">
                   Sign Up
                 </Button>
               </SignUpButton>
@@ -84,13 +84,13 @@ const Header = ({
             <div className="flex items-center gap-2">
               <img
                 src="./logo.png"
-                className="h-14 w-14 border-2 border-gray-800 rounded-full"
+                className="h-14 w-14 border-2 border-primary-500 rounded-full"
               />
-              <span className="text-xl font-bold text-custom-sage">
+              <span className="text-xl font-bold text-primary-500">
                 Craftly
               </span>
             </div>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-primary-500">
               © {new Date().getFullYear()} Craftly. All rights reserved.
             </p>
           </div>

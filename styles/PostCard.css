@@ -1,6 +1,6 @@
 .post-card {
-  background-color: white;
-  border: 1px solid #ddd;
+  background-color: hsl(var(--surface-50));
+  border: 1px solid hsl(var(--border));
   border-radius: 8px;
   padding: 15px;
   margin: 10px 0;
@@ -34,6 +34,7 @@
 
 .post-actions button {
   background-color: transparent;
+  color: hsl(var(--accent-400));
   border: none;
   cursor: pointer;
   padding: 5px;
@@ -43,4 +44,10 @@
   width: 30px;
   height: 30px;
   object-fit: contain;
+}
+
+.post-card {
+  background-color: hsl(var(--surface-50));
+  border: 1px solid hsl(var(--border));
+  box-shadow: 0 2px 4px hsl(var(--surface-200) / 0.2);
 }
