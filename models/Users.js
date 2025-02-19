@@ -4,7 +4,8 @@ export class UserSchema {
     username = "",
     email = "",
     following = null,
-    posts = null
+    posts = null,
+    interests = null
   ) {
     this.id = ""; // if user is not created, else get Id from firestore of user document
     this.username = username; // retrieve from auth
@@ -17,6 +18,10 @@ export class UserSchema {
       total: 0,
       items: [],
     }; // populate from firestore
+    this.interests = interests || {
+      total: 0,
+      items: [],
+    };
   }
 
   addFollowing(followingId) {
@@ -76,6 +81,17 @@ export class UserSchema {
     this.id = userId;
   }
 
+  setInterests(interests) {
+    this.interests.total = interests.length();
+    this.interests.items = interests;
+  }
+
+  addInterest(interest) {
+    if (!this.interests.items.includes(interest)) {
+      this.interests.items.push(interest);
+    }
+  }
+
   toJSON() {
     return {
       id: this.id,
@@ -88,6 +104,10 @@ export class UserSchema {
       posts: {
         total: this.posts.total,
         items: this.posts.items,
+      },
+      interests: {
+        total: this.interests.total,
+        items: this.items.total,
       },
     };
   }
@@ -108,6 +128,10 @@ export const UserConverter = {
         total: user.posts.total,
         items: user.posts.items,
       },
+      interests: {
+        total: user.interests.total,
+        items: user.interests.items,
+      },
     };
   },
   fromFirestore: (snapshot, options) => {
@@ -117,7 +141,8 @@ export const UserConverter = {
       data.username,
       data.email,
       data.following,
-      data.posts
+      data.posts,
+      data.interests
     );
   },
 };
