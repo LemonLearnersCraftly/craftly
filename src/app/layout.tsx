@@ -1,30 +1,51 @@
-import React from 'react';
+import React from "react";
 import {
-    ClerkProvider,
-    SignInButton,
-    SignedIn,
-    SignedOut,
-    UserButton
-  } from '@clerk/nextjs'
-  import './globals.css'
-  export default function RootLayout({
-    children,
-  }: {
-    children: React.ReactNode
-  }) {
-    return (
-      <ClerkProvider>
-        <html lang="en">
-          <body>
-            <SignedOut>
-  
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
-            {children}
-          </body>
-        </html>
-      </ClerkProvider>
-    )
-  }
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
+import "./globals.css";
+
+import { ShimmerButton } from "@/components/magicui/shimmer-button";
+import { Button } from "@/components/ui/button";
+import "../../styles/Header.css";
+import Link from "next/link";
+
+// export default function RootLayout({
+//   children,
+// }: {
+//   children: React.ReactNode;
+// }) {
+//   return (
+//     <ClerkProvider>
+//       <html lang="en">
+//         <body>
+//           <SignedOut></SignedOut>
+//           <SignedIn>
+//             <UserButton />
+//           </SignedIn>
+//           {children}
+//         </body>
+//       </html>
+//     </ClerkProvider>
+//   );
+// }
+
+const Header = ({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) => {
+  return (
+    <ClerkProvider>
+      <html lang="en">
+        <body>{children}</body>
+      </html>
+    </ClerkProvider>
+  );
+};
+
+export default Header;
