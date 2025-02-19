@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getStorage } from "firebase/storage";
 
 // process.env is the environment (DO NOT USE EXACT VALUES, USE ENV KEYS) as demonstrated below
 const firebaseConfig = {
@@ -12,5 +13,9 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+// Initialize Firebase file storage
+const STORAGE_FOLDER_PATH = "gs://craftly-14eda.firebasestorage.app"; // TO DO: Make this an environment variable (security reasons)
+export const storage = getStorage(app, STORAGE_FOLDER_PATH);
 
 export default app;
