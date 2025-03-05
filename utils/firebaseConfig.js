@@ -18,4 +18,4 @@ const app = initializeApp(firebaseConfig);
 const STORAGE_FOLDER_PATH = "gs://craftly-14eda.firebasestorage.app"; // TO DO: Make this an environment variable (security reasons)
 export const storage = getStorage(app, STORAGE_FOLDER_PATH);
 
-export default app;
+export { app, storage };
