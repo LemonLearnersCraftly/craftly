@@ -4,17 +4,17 @@ import './signup.css';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
+import { shadesOfPurple } from '@clerk/themes';
 
 export default function Page() {
   const router = useRouter();
   const handleSignUpComplete = () => {
-    router.push('/preferences');
+    router.push('/preferencesFile');
   };
   useEffect(() => {
     const handleSignUpComplete = (event: Event) => {
-      if ((event as CustomEvent).detail.url === '/preferences') {
-        // Add custom logic here if necessary
-        router.push('/preferences');
+      if ((event as CustomEvent).detail.url === '/preferencesFIle') {
+        router.push('/preferencesFile');
       }
     };
 
@@ -35,9 +35,12 @@ export default function Page() {
       </nav>
       
       <div className="flex flex-col justify-center items-center flex-grow">
-        <SignUp forceRedirectUrl={'/preferences'} />
+        <SignUp forceRedirectUrl={'/preferencesFile'}
+        appearance={{
+          baseTheme:[shadesOfPurple],
+        }}/>
       </div>
-      <button onClick={() => router.push('/preferences')}>Go to Preferences</button>
+      <button onClick={() => router.push('/preferencesFile')}>Go to Preferences</button>
     </div>
   );
 }

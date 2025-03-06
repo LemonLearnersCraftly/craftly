@@ -1,6 +1,7 @@
 import { SignIn } from '@clerk/nextjs';
 import './signin.css';  
 import Link from 'next/link';
+import { dark, neobrutalism, shadesOfPurple  } from '@clerk/themes'
 
 export default function Page() {
   return (
@@ -13,7 +14,9 @@ export default function Page() {
 
       {/* Sign-In Section */}
       <div className="flex flex-col justify-center items-center flex-grow">
-        <SignIn />
+        <SignIn appearance={{
+          baseTheme:[shadesOfPurple]
+        }}/>
       </div>
     </div>
   );
