@@ -1,20 +1,43 @@
-import { SignUp } from '@clerk/nextjs'
+'use client'
+import { SignUp } from '@clerk/nextjs';
 import './signup.css';  
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 export default function Page() {
+  const router = useRouter();
+  const handleSignUpComplete = () => {
+    router.push('/preferences');
+  };
+  useEffect(() => {
+    const handleSignUpComplete = (event: Event) => {
+      if ((event as CustomEvent).detail.url === '/preferences') {
+        // Add custom logic here if necessary
+        router.push('/preferences');
+      }
+    };
+
+    window.addEventListener('redirect', handleSignUpComplete);
+
+    return () => {
+      window.removeEventListener('redirect', handleSignUpComplete);
+    };
+  }, [router]);
+
+
   return (
     <div className="min-h-screen flex flex-col">
       {/* Navbar */}
       <nav className="w-full p-4 bg-gray-800 text-white flex justify-between">
-        <h1 className="text-xl font-bold">MyApp</h1>
+        <h1 className="text-xl font-bold">Craftly</h1>
         <Link href="/" className="text-white hover:underline">Home</Link>
       </nav>
       
       <div className="flex flex-col justify-center items-center flex-grow">
-        <SignUp />
-     </div>
+        <SignUp forceRedirectUrl={'/preferences'} />
+      </div>
+      <button onClick={() => router.push('/preferences')}>Go to Preferences</button>
     </div>
-
   );
 }
