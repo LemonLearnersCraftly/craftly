@@ -5,6 +5,9 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 250px;
+    display: flex; /* Added */
+    flex-direction: column; /* Ensures stacked elements */
+    align-items: center; /* Centers items horizontally */
   }
   
   .profile-image {
@@ -13,6 +16,7 @@
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 10px;
+    display: block;
   }
   
   .profile-name {
