@@ -3,7 +3,7 @@ import { useUser } from '@clerk/nextjs';
 import { useState, useEffect} from 'react';
 import { useRouter } from 'next/navigation';
 import Card from './PreferencesItemCard';
-import { db } from '../firebase';
+import { db } from '../utils/firebaseConfig';
 import { UserSchema, UserConverter } from '../models/Users';
 
 export default function Preferences() {
@@ -26,15 +26,22 @@ export default function Preferences() {
 
     useEffect(() => {
       if (user && user.id) {
+        console.log('Fetching data for user:', user.id);
         const fetchData = async () => {
+          try {
           const userDoc = await db.collection('users').doc(user.id).withConverter(UserConverter).get();
           if (userDoc.exists) {
             const userData = userDoc.data();
             setUserData(userData);
             setSelectedItems(userData.interests.items);
+          } else {
+            console.error('User data not found', user.id);
           }
-        };
-        fetchData();
+        } catch (e) {
+          console.error('Error fetching user data', e);
+        }
+      };
+      fetchData();
       }
     }, [user?.id]);
 
@@ -49,6 +56,10 @@ export default function Preferences() {
     };
 
     const savePreferences = async () => {
+      if (!userData) {
+        console.error('No user data available to save preferences.');
+        return;
+      }    
       try {
         const updateUser = new UserSchema(
           userData.id,
