@@ -1,6 +1,7 @@
 import { SignIn } from '@clerk/nextjs';
 import './signin.css';  
 import Link from 'next/link';
+import Feed from '/Users/panteha/Desktop/CMPT/Projects/craftly/components/Feed.js';
 
 export default function Page() {
   return (
@@ -13,7 +14,7 @@ export default function Page() {
 
       {/* Sign-In Section */}
       <div className="flex flex-col justify-center items-center flex-grow">
-        <SignIn />
+        <SignIn forceRedirectUrl={'/feed'}/>
       </div>
     </div>
   );
