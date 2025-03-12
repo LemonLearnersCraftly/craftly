@@ -12,7 +12,7 @@ export default function Page() {
       </nav>
       
       <div className="flex flex-col justify-center items-center flex-grow">
-        <SignUp />
+        <SignUp forceRedirectUrl={'/feed'}/>
      </div>
     </div>
 
