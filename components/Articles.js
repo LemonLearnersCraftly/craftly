@@ -60,48 +60,48 @@ const Articles = () => {
     },
     {
       id: 12,
-      image: "/article2.jpg",
-      link: "https://www.handylittleme.com/30-stash-busting-knitting-patterns/",
+      image: "/article12.jpg",
+      link: "https://idealme.com/18-easy-knitting-stitches-can-use-project/",
     },
     {
       id: 13,
-      image: "/article2.jpg",
-      link: "https://www.handylittleme.com/30-stash-busting-knitting-patterns/",
+      image: "/article13.jpg",
+      link: "https://blog.treasurie.com/how-to-cast-on/",
     },
     {
       id: 14,
-      image: "/article2.jpg",
-      link: "https://www.handylittleme.com/30-stash-busting-knitting-patterns/",
+      image: "/article14.jpg",
+      link: "https://crewelghoul.com/blog/free-beginner-embroidery-patterns/",
     },
     {
       id: 15,
-      image: "/article2.jpg",
-      link: "https://www.handylittleme.com/30-stash-busting-knitting-patterns/",
+      image: "/article15.jpg",
+      link: "https://www.polkadotchair.com/45-beginner-quilt-patterns-tutorials/",
     },
     {
       id: 16,
-      image: "/article2.jpg",
-      link: "https://www.handylittleme.com/30-stash-busting-knitting-patterns/",
+      image: "/article16.jpg",
+      link: "https://www.sumoftheirstories.com/blog/easy-sewing-projects-that-are-perfect-for-beginners",
     },
     {
       id: 17,
-      image: "/article2.jpg",
-      link: "https://www.handylittleme.com/30-stash-busting-knitting-patterns/",
+      image: "/article17.jpg",
+      link: "https://needlepoint-for-fun.com/pages/how-to-needlepoint",
     },
     {
       id: 18,
-      image: "/article2.jpg",
-      link: "https://www.handylittleme.com/30-stash-busting-knitting-patterns/",
+      image: "/article18.jpg",
+      link: "https://cross-stitch.craftgossip.com/30-bird-cross-stitch-patterns/2022/12/07/",
     },
     {
       id: 19,
-      image: "/article2.jpg",
-      link: "https://www.handylittleme.com/30-stash-busting-knitting-patterns/",
+      image: "/article19.jpg",
+      link: "https://studio-koekoek.com/cross-stitch-instructions-tutorial-for-beginners/",
     },
     {
       id: 20,
-      image: "/article2.jpg",
-      link: "https://www.handylittleme.com/30-stash-busting-knitting-patterns/",
+      image: "/article20.jpg",
+      link: "https://www.allfreejewelrymaking.com/Jewelry-Basics/Beginner-Beading-Tutorials-How-to-Peyote-Stitch-Brick-Stitch-Square-Stitch-and-More",
     }
   ];
 

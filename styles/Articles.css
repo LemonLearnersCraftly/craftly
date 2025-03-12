@@ -9,7 +9,7 @@
 }
 
 .article-image {
-  width: 100%;
+  width: 1000px;
   height: auto;
   object-fit: cover;
   border-radius: 8px;
