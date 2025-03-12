@@ -16,7 +16,7 @@
 
 .feed-section {
   flex: 2;
-  padding-right: 20px;
+  padding-right: 0 20px;
   transition: flex 0.3s ease;
 }
 
@@ -32,6 +32,9 @@
   height: calc(100vh - 10px);
   overflow-y: auto;
   transition: flex 0.3s ease, max-width 0.3s ease;
+}
+
+.profile-section {
 }
 
 .toggle-button {
