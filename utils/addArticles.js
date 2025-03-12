@@ -18,10 +18,8 @@ fs.readFile(articlesFile, 'utf-8', async (err, data) => {
     for (const articleData of articles) {
       const article = new ArticleSchema(
         articleData.id,
-        articleData.title,
-        articleData.author,
-        articleData.website,
-        articleData.imageUrl
+        articleData.image,
+        articleData.link
       );
 
       // Convert article schema to Firestore format
@@ -29,7 +27,7 @@ fs.readFile(articlesFile, 'utf-8', async (err, data) => {
 
       // Add article to Firestore collection
       await addData('articles', articleDataForFirestore);
-      console.log(`Article "${articleData.title}" added to Firestore`);
+      console.log(`Article "${articleData.link}" added to Firestore`);
     }
   } catch (e) {
     console.error('Error processing articles:', e);

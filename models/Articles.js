@@ -1,55 +1,35 @@
 export class ArticleSchema {
-    constructor(id = "", title = "", author = "", website = "", imageUrl = "") {
+    constructor(id = "", image = "", link = "") {
       this.id = id;
-      this.title = title;
-      this.author = author;
-      this.website = website;
-      this.imageUrl = imageUrl;
+      this.image = image;
+      this.link = link;
     }
   
     getArticleId() {
       return this.id;
     }
   
-    getTitle() {
-      return this.title;
+    getImage() {
+      return this.image;
     }
   
-    getAuthor() {
-      return this.author;
+    getLink() {
+      return this.link;
     }
   
-    getWebsite() {
-      return this.website;
+    setImage(image) {
+      this.image = image;
     }
   
-    getImageUrl() {
-      return this.imageUrl;
-    }
-  
-    setTitle(title) {
-      this.title = title;
-    }
-  
-    setAuthor(author) {
-      this.author = author;
-    }
-  
-    setWebsite(website) {
-      this.website = website;
-    }
-  
-    setImageUrl(imageUrl) {
-      this.imageUrl = imageUrl;
+    setLink(link) {
+      this.link = link;
     }
   
     toJSON() {
       return {
         id: this.id,
-        title: this.title,
-        author: this.author,
-        website: this.website,
-        imageUrl: this.imageUrl,
+        title: this.image,
+        author: this.link,
       };
     }
   }
@@ -58,15 +38,13 @@ export class ArticleSchema {
     toFirestore: (article) => {
       return {
         id: article.id,
-        title: article.title,
-        author: article.author,
-        website: article.website,
-        imageUrl: article.imageUrl,
+        image: article.image,
+        link: article.link,
       };
     },
     fromFirestore: (snapshot, options) => {
       const data = snapshot.data(options);
-      return new ArticleSchema(data.id, data.title, data.author, data.website, data.imageUrl);
+      return new ArticleSchema(data.id, data.image, data.link);
     },
   };
   
