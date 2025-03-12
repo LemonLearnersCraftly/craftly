@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import Card from './PreferencesItemCard';
 import { db } from '../utils/firebaseConfig';
 import { UserSchema, UserConverter } from '../models/Users';
+import { getDoc, doc, setDoc } from 'firebase/firestore';
 
 export default function Preferences() {
     const {user} = useUser();
@@ -29,11 +30,16 @@ export default function Preferences() {
         console.log('Fetching data for user:', user.id);
         const fetchData = async () => {
           try {
-          const userDoc = await db.collection('users').doc(user.id).withConverter(UserConverter).get();
+          const userDocRef = doc(db, 'users', user.id).withConverter(UserConverter);
+          const userDoc = await getDoc(userDocRef);
           if (userDoc.exists) {
             const userData = userDoc.data();
             setUserData(userData);
-            setSelectedItems(userData.interests.items);
+            if (userData?.interests?.items) {
+              setSelectedItems(userData.interests.items);
+            } else {
+              setSelectedItems([]);
+            }
           } else {
             console.error('User data not found', user.id);
           }
@@ -43,7 +49,7 @@ export default function Preferences() {
       };
       fetchData();
       }
-    }, [user?.id]);
+    }, [user]);
 
     const handleCardClick = (item) => {
       setSelectedItems((prevSelectedItems) => {
@@ -69,9 +75,10 @@ export default function Preferences() {
           userData.posts,
           {total: selectedItems.length, items: selectedItems}
         );
-        await db.collection('users').doc(user.id).withConverter(UserConverter).set(updateUser);
+        const userDocRef = doc(db, 'users', user.id).withConverter(UserConverter);
+        await setDoc(userDocRef, updateUser);
         console.log('Preferences saved succesfully');
-        router.push('/HomePage');
+        router.push('/feed');
       } catch (e) {
         console.error('error saving preferences', e);
       }
