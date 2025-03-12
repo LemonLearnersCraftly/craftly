@@ -12,6 +12,7 @@ export default function Preferences() {
     const router = useRouter();
     const [selectedItems, setSelectedItems] = useState([]);
     const [userData, setUserData] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const items = [
       {imageUrl: "/crafts/knitting.png", text: "Knitting" },
@@ -26,25 +27,30 @@ export default function Preferences() {
     ];  
 
     useEffect(() => {
+      console.log('User object:', user);
       if (user && user.id) {
         console.log('Fetching data for user:', user.id);
         const fetchData = async () => {
           try {
-          const userDocRef = doc(db, 'users', user.id).withConverter(UserConverter);
+          const userDocRef = doc(db, 'users', user.id).withConverter(UserConverter);  
           const userDoc = await getDoc(userDocRef);
+          console.log('Document reference:', userDocRef);
+          console.log('User ID:', user.id);
           if (userDoc.exists) {
+            console.log('User data found:', userDoc);
+            console.log('Raw document data:', userDoc.data());
             const userData = userDoc.data();
             setUserData(userData);
-            if (userData?.interests?.items) {
-              setSelectedItems(userData.interests.items);
-            } else {
-              setSelectedItems([]);
-            }
+            console.log('User data:', userData);
+            setSelectedItems(userData?.interests?.items || []);
+            console.log('Selected Items:', userData?.interests?.items);
           } else {
             console.error('User data not found', user.id);
           }
         } catch (e) {
           console.error('Error fetching user data', e);
+        } finally {
+          setLoading(false);
         }
       };
       fetchData();
@@ -52,16 +58,23 @@ export default function Preferences() {
     }, [user]);
 
     const handleCardClick = (item) => {
+      console.log('Card clicked:', item.text);
       setSelectedItems((prevSelectedItems) => {
         if(prevSelectedItems.includes(item.text)) {
           return prevSelectedItems.filter((selectedItem) => selectedItem != item.text);
         } else {
+          console.log('Item added:', item.text);
           return [...prevSelectedItems, item.text];
         }
       })
     };
 
+    useEffect(() => {
+      console.log('Updated Selected Items:', selectedItems);
+    }, [selectedItems]);
+
     const savePreferences = async () => {
+      console.log(userData)
       if (!userData) {
         console.error('No user data available to save preferences.');
         return;
@@ -83,6 +96,11 @@ export default function Preferences() {
         console.error('error saving preferences', e);
       }
     };
+
+
+    if (loading) {
+      return <div className="text-white">Loading user data...</div>;
+    }
 
 
     return (
