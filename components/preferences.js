@@ -113,6 +113,7 @@ export default function Preferences() {
             imageUrl={item.imageUrl}
             text={item.text}
             onClick={() => handleCardClick(item)}
+            isSelected={selectedItems.includes(item.text)}
           />
           ))}
         </div>
