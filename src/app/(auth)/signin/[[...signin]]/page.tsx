@@ -2,6 +2,7 @@ import { SignIn } from '@clerk/nextjs';
 import './signin.css';  
 import Link from 'next/link';
 import { dark, neobrutalism, shadesOfPurple  } from '@clerk/themes'
+import Feed from '/Users/panteha/Desktop/CMPT/Projects/craftly/components/Feed.js';
 
 export default function Page() {
   return (
