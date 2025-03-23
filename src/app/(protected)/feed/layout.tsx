@@ -8,6 +8,7 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import "../../globals.css";
+import SearchBar from "../../components/SearchBar";
 
 import { ShimmerButton } from "@/components/magicui/shimmer-button";
 import { Button } from "@/components/ui/button";
@@ -49,7 +50,7 @@ const CustomFeedLayout = ({
               className="h-14 w-14 border-2 border-gray-800 rounded-full"
             />
             <span className="text-xl font-bold text-custom-sage">Craftly</span>
-            <input type="text" placeholder="search..." className="search-bar" />
+            <SearchBar />
           </div>
 
           <div className="flex gap-4">
