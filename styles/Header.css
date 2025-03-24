@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: #92da92;
+  background-color: rgb(212, 241, 210);
 }
 
 .center-container {
@@ -91,4 +91,17 @@
 
 .result-item:hover {
   background-color: #f7f7f7; /* Highlight item on hover */
+}
+
+.text-costum-orange {
+  color: orange
+}
+
+.custom-shimmer-button-wrapper {
+  background-image: url('/frog.jpg'); /* Path to your image */
+  background-size: cover; /* Ensures the image covers the entire button */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Ensures the image doesn't repeat */
+  border-radius: 8px; /* Optional: adjust button border radius */
+  display: inline-block; /* Ensures it works with the button */
 }

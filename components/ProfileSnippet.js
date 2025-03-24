@@ -10,13 +10,13 @@ const ProfileSnippet = () => {
 
   return (
     <div className="profile-snippet">
-      <img src={user.imageUrl} alt="Profile" className="profile-image" />
+      <img src={"/frog.jpg" || user.imageUrl} alt="Profile" className="profile-image" />
 
       <h2 className="profile-name">
         {user.firstName} {user.lastName}
       </h2>
       <p className="profile-username">@{user.username || "User"}</p>
-      <p className="profile-bio">{user.publicMetadata?.bio || "No bio available"}</p>
+      <p className="profile-bio">{user.publicMetadata?.bio || "I am a frog and I love doing crafts"}</p>
 
       <button className="edit-profile-btn">Edit Profile</button> {/* edit to lead to profile page when clicked */}
     </div>

@@ -1,9 +1,16 @@
 .homepage {
-  background-color: #89c28b;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(45deg, #92c9b1, #92c9b1 20px, #b3e0d2 20px, #b3e0d2 40px);
+  width: 100%;
+  height: 100%;
+  /* Add your background pattern here */
+  background-color: #9fd69b;
+  background-image: radial-gradient(#5cc470 10%, transparent 10%),
+                      radial-gradient( #41a73f 10%, transparent 10%);
+  background-size: 100px 100px;
+  background-position: 0 0, 50px 50px;
+  
 }
 
 .content {
@@ -21,6 +28,7 @@
 }
 
 .articles-section {
+  flex-grow: 1;
   flex: 1;
   padding: 0;
   margin: 0;
@@ -32,30 +40,82 @@
   height: calc(100vh - 10px);
   overflow-y: auto;
   transition: flex 0.3s ease, max-width 0.3s ease;
+  width: 100%;
+  min-height: calc(100vh - 8rem); /* Adjust height for header/footer */
+  background: repeating-linear-gradient(
+      45deg,
+      orange,
+      orange 10px,
+      orangered 10px,
+      orangered 20px
+  );
+  background-blend-mode: overlay;
 }
 
-
-.toggle-button {
-  position: absolute;
-  top: 10px;
-  left: calc(100% - 50px);
-  padding: 10px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  z-index: 10;
-}
-
-.toggle-button img {
+/* From Uiverse.io by andrew-demchenk0 */ 
+.switch {
+  --input-focus: #2d8cf0;
+  --font-color: #323232;
+  --font-color-sub: #666;
+  --bg-color: #fff;
+  --bg-color-alt: #666;
+  --main-color: #323232;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
   width: 20px;
-  height: 20px;
+  height: 10px;
+}
+/* Wrapper for toggle and articles */
+.toggle-container {
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Align items vertically */
+  gap: 1em; /* Space between toggle and articles */
 }
 
-.hidden {
-  display: none;
+.toggle {
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
-.full-width {
-  flex: 3;
+.slider {
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg-colorcolor);
+  transition: 0.3s;
+}
+
+.slider:before {
+  box-sizing: border-box;
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 10px;
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  left: -2px;
+  bottom: 2px;
+  background-color: var(--bg-color);
+  box-shadow: 0 3px 0 var(--main-color);
+  transition: 0.3s;
+}
+
+.toggle:checked + .slider {
+  background-color: var(--input-focus);
+}
+
+.toggle:checked + .slider:before {
+  transform: translateX(30px);
 }
