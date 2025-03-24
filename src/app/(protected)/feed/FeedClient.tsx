@@ -29,12 +29,16 @@ export default function FeedClient({ user }: { user: any }) {
           <Articles />
         </div>
       )}
-      <button className="toggle-button" onClick={handleToggleArticles}>
-        <img
-          src={isArticlesHidden ? "/showArticles.jpg" : "/hideArticles.jpg"}
-          alt={isArticlesHidden ? "Show articles" : "Hide articles"}
+      <label className="switch">
+        <input
+          className="toggle"
+          type="checkbox"
+          checked={isArticlesHidden}
+          onChange={handleToggleArticles}
         />
-      </button>
+        <span className="slider"></span>
+        <span className="card-side"></span>
+      </label>
     </div>
     </div>
   );

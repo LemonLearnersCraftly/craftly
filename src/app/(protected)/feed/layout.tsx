@@ -13,6 +13,7 @@ import SearchBar from "../../components/SearchBar";
 import { ShimmerButton } from "@/components/magicui/shimmer-button";
 import { Button } from "@/components/ui/button";
 import "../../../../styles/Header.css";
+import "../../../../styles/Logo.css";
 import Link from "next/link";
 
 // export default function RootLayout({
@@ -40,23 +41,29 @@ const CustomFeedLayout = ({
 }: Readonly<{
   children: React.ReactNode;
 }>) => {
+
   return (
     <ClerkProvider>
-      <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+      <div>
+      <header className="header">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
             <img
               src="./logo.png"
-              className="h-14 w-14 border-2 border-gray-800 rounded-full"
+              className="h-20 w-20"
+              alt="Logo"
             />
-            <span className="text-xl font-bold text-custom-sage">Craftly</span>
+          <div className="button">
+            <span className="front-text">Craftly</span>
+            Craftly
+          </div>
             <SearchBar />
           </div>
 
           <div className="flex gap-4">
             <SignedOut>
               <SignInButton fallbackRedirectUrl="/feed">
-                <ShimmerButton className="shadow-2xl">
+                <ShimmerButton className="shadow-2xl custom-shimmer-button">
                   <span className="whitespace-pre-wrap text-center text-sm font-black leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10">
                     Log In
                   </span>
@@ -81,13 +88,13 @@ const CustomFeedLayout = ({
         </div>
       </header>
       {children}
-      <footer className="border-t bg-white">
+      <footer className="header">
         <div className="container  md:px-6 py-2">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <img
                 src="./logo.png"
-                className="h-14 w-14 border-2 border-gray-800 rounded-full"
+                className="h-20 w-20"
               />
               <span className="text-xl font-bold text-custom-sage">
                 Craftly
@@ -99,6 +106,7 @@ const CustomFeedLayout = ({
           </div>
         </div>
       </footer>
+      </div>
     </ClerkProvider>
   );
 };
