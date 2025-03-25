@@ -12,7 +12,9 @@ const Profile = () => {
 
   return (
     <div className="profile-container">
-      <img src={user.imageUrl || "/frog.jpg"} alt="Profile" className="profile-image" />
+      <div className="profile-image-wrapper">
+        <img src={user.imageUrl || "/frog.jpg"} alt="Profile" className="profile-image" />
+      </div>
       
       <h2 className="profile-name">
         {user.firstName} {user.lastName}
@@ -20,9 +22,6 @@ const Profile = () => {
       <p className="profile-username">@{user.username || "User"}</p>
       <p className="profile-bio">{user.publicMetadata?.bio || "I am a frog and I love doing crafts"}</p>
 
-      <button onClick={() => router.push("/profile/edit")} className="edit-profile-btn">
-        Edit Profile
-      </button>
     </div>
   );
 };

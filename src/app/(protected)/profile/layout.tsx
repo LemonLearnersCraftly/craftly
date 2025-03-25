@@ -77,6 +77,11 @@ const CustomProfileLayout = ({
               </SignUpButton>
             </SignedOut>
             <SignedIn>
+                <Link href="/feed">
+                    <Button className="bg-custom-mint hover:bg-custom-sage text-white font-black">
+                    Home
+                    </Button>
+                </Link>
                 <Link href="/profile">
                     <Button className="bg-custom-mint hover:bg-custom-sage text-white font-black">
                     Profile

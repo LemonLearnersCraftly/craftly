@@ -1,0 +1,84 @@
+body{
+    background-color: #9fd69b;
+    background-image: radial-gradient(#5cc470 10%, transparent 10%),
+                        radial-gradient( #41a73f 10%, transparent 10%);
+    background-size: 100px 100px;
+    background-position: 0 0, 50px 50px;
+}
+
+.profile-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .profile-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    text-align: center;
+    border: 4px solid #6da34d; /* Custom Sage Green */
+    margin-bottom: 15px;
+  }
+
+  .profile-image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+  } 
+  
+  .profile-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .profile-username {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 10px;
+  }
+  
+  .profile-bio {
+    font-size: 14px;
+    color: #444;
+    background: #f8f8f8;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  /*.edit-profile-btn {
+    background: #6da34d; 
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+  } 
+  
+  .edit-profile-btn:hover {
+    background: #588c3a; 
+    transform: scale(1.05);
+  }
+  
+  .edit-profile-btn:active {
+    background: #4a7730;
+    transform: scale(1);
+  }*/
+  
