@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import "../../../../styles/Header.css";
 import "../../../../styles/Logo.css";
 import Link from "next/link";
+import ProfilePage from "./page";
 
 // export default function RootLayout({
 //   children,
@@ -36,7 +37,7 @@ import Link from "next/link";
 //   );
 // }
 
-const CustomFeedLayout = ({
+const CustomProfileLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -57,7 +58,7 @@ const CustomFeedLayout = ({
             <span className="front-text">Craftly</span>
             Craftly
           </div>
-            <SearchBar />         
+            <SearchBar />
           </div>
 
           <div className="flex gap-4">
@@ -76,19 +77,19 @@ const CustomFeedLayout = ({
               </SignUpButton>
             </SignedOut>
             <SignedIn>
-              <Link href="/profile">
-                <Button className="bg-custom-mint hover:bg-custom-sage text-white font-black">
-                  Profile
-                </Button>
-              </Link>
-              <UserButton
-                appearance={{
-                  elements: {
-                    avatarBox: "h-[3.75rem] w-[3.75rem]",
-                  },
-                }}
-              />
-        </SignedIn>
+                <Link href="/profile">
+                    <Button className="bg-custom-mint hover:bg-custom-sage text-white font-black">
+                    Profile
+                    </Button>
+                </Link>
+                <UserButton
+                    appearance={{
+                    elements: {
+                        avatarBox: "h-[3.75rem] w-[3.75rem]",
+                    },
+                    }}
+                />
+            </SignedIn>
 
           </div>
         </div>
@@ -117,4 +118,4 @@ const CustomFeedLayout = ({
   );
 };
 
-export default CustomFeedLayout;
+export default CustomProfileLayout;
