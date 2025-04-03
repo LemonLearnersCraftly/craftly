@@ -110,7 +110,7 @@ export class UserSchema {
       },
       interests: {
         total: this.interests.total,
-        items: this.items.total,
+        items: this.items.items,
       },
     };
   }
