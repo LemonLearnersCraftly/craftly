@@ -1,5 +1,5 @@
-import Preferences from "@/components/preferences";
+import Preferences from "@/components/Preferences";
 
 export default function PreferencesPage() {
-    return <Preferences/>
+  return <Preferences />;
 }
