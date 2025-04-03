@@ -22,7 +22,7 @@ body{
   width: 100%;
   max-width: 500px;
   padding: 25px;
-  background: white;
+  background: rgb(212, 241, 210);
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -33,7 +33,7 @@ body{
 .profile-posts-container {
   width: 100%;
   max-width: 1200px;
-  background: white;
+  background: rgb(212, 241, 210);
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 25px;
