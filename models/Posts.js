@@ -1,6 +1,7 @@
 export class PostSchema {
   constructor(
     id = "",
+    description = "",
     images = [],
     hasCarousel = false,
     assciateUser = "",
@@ -9,7 +10,8 @@ export class PostSchema {
     saved = false
   ) {
     this.id = id;
-    this.images = [];
+    this.description = description;
+    this.images = images;
     this.hasCarousel = hasCarousel;
     this.assciateUser = assciateUser;
     this.likes = likes;
@@ -19,6 +21,10 @@ export class PostSchema {
 
   getPostId() {
     return this.id;
+  }
+
+  getDescription() {
+    return this.description;
   }
 
   getImages() {
@@ -90,6 +96,7 @@ export class PostSchema {
   toJSON() {
     return {
       id: this.id,
+      description: this.description,
       images: this.images,
       hasCarousel: this.hasCarousel,
       assciateUser: this.assciateUser,
@@ -105,6 +112,7 @@ export const PostConverter = {
   toFirestore: (post) => {
     return {
       id: post.id,
+      description: post.description,
       images: post.images,
       hasCarousel: post.hasCarousel,
       assciateUser: post.assciateUser,
@@ -117,6 +125,7 @@ export const PostConverter = {
     const data = snapshot.data(options);
     return new PostSchema(
       data.id,
+      data.description,
       data.images,
       data.hasCarousel,
       data.assciateUser,

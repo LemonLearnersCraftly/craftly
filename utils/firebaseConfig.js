@@ -20,5 +20,9 @@ const db = getFirestore(app);
 const STORAGE_FOLDER_PATH = "gs://craftly-14eda.firebasestorage.app"; // TO DO: Make this an environment variable (security reasons)
 export const storage = getStorage(app, STORAGE_FOLDER_PATH);
 
+<<<<<<< HEAD
 export { db };
 export default app;
+=======
+export { app, storage };
+>>>>>>> 19-Creating-Post
