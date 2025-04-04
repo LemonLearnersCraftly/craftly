@@ -3,38 +3,44 @@
 import { SignUp } from "@clerk/nextjs";
 import "./signup.css";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-// Removed useEffect import
 import { shadesOfPurple } from "@clerk/themes";
 
-export default function Page() {
-  const router = useRouter(); // Keep router if needed for other purposes, like the explicit button
-
-  // Removed useEffect hook for redirection
-
+export default function SignUpPage() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Navbar */}
       <nav className="w-full p-4 bg-gray-800 text-white flex justify-between">
-        <h1 className="text-xl font-bold">Craftly</h1>
-        <Link href="/" className="text-white hover:underline">
-          Home
+        <Link href="/" className="text-xl font-bold flex items-center gap-2">
+          <img
+            src="/logo.png"
+            alt="Craftly Logo"
+            className="h-10 w-10 border-2 border-gray-200 rounded-full"
+          />
+          <span>Craftly</span>
+        </Link>
+        <Link href="/signin" className="text-white hover:underline">
+          Sign In
         </Link>
       </nav>
 
-      <div className="flex flex-col justify-center items-center flex-grow">
-        <SignUp
-          // Use afterSignUpUrl for standard flow, Clerk handles the redirect
-          forceRedirectUrl={"/preferencesFile"}
-          // Keep signInUrl if you want them redirected to sign-in if they navigate here wrongly
-          // signInUrl="/signin" // Example
-          appearance={{
-            baseTheme: [shadesOfPurple],
-          }}
-        />
+      <div className="flex flex-col justify-center items-center flex-grow p-4">
+        <div className="max-w-md w-full">
+          <h1 className="text-2xl font-bold mb-6 text-center">Join Craftly</h1>
+          <p className="text-gray-600 mb-6 text-center">
+            Connect with fellow crafters and share your creations
+          </p>
+          <SignUp
+            appearance={{
+              baseTheme: [shadesOfPurple],
+              elements: {
+                rootBox: "w-full",
+                card: "rounded-xl shadow-lg",
+              },
+            }}
+            redirectUrl="/preferencesFile"
+          />
+        </div>
       </div>
-      {/* Optional: Keep button if needed for manual navigation, but primary flow is automatic */}
-      {/* <button onClick={() => router.push('/preferencesFile')}>Go to Preferences</button> */}
     </div>
   );
 }

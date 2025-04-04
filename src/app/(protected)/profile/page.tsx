@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useUser } from "@clerk/nextjs";
-import db from "@/utils/firestore";
+import { db } from "@/utils/firestore";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { PostSchema, PostConverter } from "@/models/Posts";
 import { DraftSchema, DraftConverter } from "@/models/Drafts";

@@ -171,6 +171,8 @@ export default function LandingPage() {
                   <div className="flex flex-col items-center space-y-2">
                     <div className="relative flex w-full flex-col items-center justify-center p-5">
                       <OrbitingCircles
+                        className="some-custom-class" // You can add a custom class name here
+                        reverse={false} // Set reverse to either true or false based on your preference
                         radius={80}
                         iconSize={40}
                         centerComponent={

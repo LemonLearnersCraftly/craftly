@@ -1,51 +1,32 @@
+// src/app/layout.tsx
 import React from "react";
-import {
-  ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
+import NavigationMenu from "@/components/NavigationMenu";
+import Footer from "@/components/Footer";
+import { Toaster } from "@/components/ui/sonner";
 
-import { ShimmerButton } from "@/components/magicui/shimmer-button";
-import { Button } from "@/components/ui/button";
-import "../../styles/Header.css";
-import Link from "next/link";
+export const metadata = {
+  title: "Craftly - Connect with Craft Enthusiasts",
+  description:
+    "Share your craft projects, discover patterns, and connect with a vibrant community of crafters.",
+};
 
-// export default function RootLayout({
-//   children,
-// }: {
-//   children: React.ReactNode;
-// }) {
-//   return (
-//     <ClerkProvider>
-//       <html lang="en">
-//         <body>
-//           <SignedOut></SignedOut>
-//           <SignedIn>
-//             <UserButton />
-//           </SignedIn>
-//           {children}
-//         </body>
-//       </html>
-//     </ClerkProvider>
-//   );
-// }
-
-const Header = ({
+export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) => {
+}) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <body>{children}</body>
+        <body className="bg-gray-50 min-h-screen flex flex-col">
+          <NavigationMenu />
+          <main className="flex-1 pb-5 md:pb-0">{children}</main>
+          <Footer />
+          <Toaster />
+        </body>
       </html>
     </ClerkProvider>
   );
-};
-
-export default Header;
+}

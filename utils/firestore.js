@@ -5,10 +5,10 @@ import {
   setDoc,
   updateDoc,
 } from "@firebase/firestore";
-import firebaseApp from "./firebaseConfig";
+import { app } from "./firebaseConfig";
 
 // Connect to database
-const db = getFirestore(firebaseApp);
+export const db = getFirestore(app);
 console.log("Database Connected!");
 
 export const addData = async (collectionName, data, converter = null) => {
@@ -30,6 +30,7 @@ export const addData = async (collectionName, data, converter = null) => {
       converter ? data : JSON.stringify(data)
     );
     console.log("Document written with ID: ", docRef.id);
+    return docRef.id;
   } catch (e) {
     console.error("Error adding document: ", e);
   }
