@@ -2,6 +2,8 @@
 
 Our very own crafting website
 
+Last Stable Version
+
 ## Documenting Code (Setup):
 
 1. `layout.js`: Defines layout for that folder. It can be overriden with different layout.js files for different folders.
@@ -10,5 +12,5 @@ Our very own crafting website
 4. `signup.js`: This is the Sign Up page where users can create an account.
 5. `login.js`: This is the Log In page where users can log in to their account through Craftly or a third party login through Google.
 
-> [!CAUTION] 
+> [!CAUTION]
 > `firebaseConfig.js, .firebaserc, firebase.json, firestore.json` DO NOT CHANGE UNTIL ABSOLUTELY NECESSARY
