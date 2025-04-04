@@ -1,15 +1,13 @@
 export class UserSchema {
   constructor(
     id = "",
-    ppic = "",
     username = "",
     email = "",
     following = null,
     posts = null,
     interests = null
   ) {
-    this.id = id; // if user is not created, else get Id from firestore of user document
-    this.ppic = ppic; // retrieve from auth
+    this.id = ""; // if user is not created, else get Id from firestore of user document
     this.username = username; // retrieve from auth
     this.email = email; // retrieve from auth
     this.following = following || {
@@ -97,7 +95,6 @@ export class UserSchema {
   toJSON() {
     return {
       id: this.id,
-      ppic: this.ppic,
       username: this.username,
       email: this.email,
       following: {
@@ -121,7 +118,6 @@ export const UserConverter = {
   toFirestore: (user) => {
     return {
       id: user.id,
-      ppic: user.ppic,
       username: user.username,
       email: user.email,
       following: {
@@ -142,7 +138,6 @@ export const UserConverter = {
     const data = snapshot.data(options);
     return new UserSchema(
       data.id,
-      data.ppic,
       data.username,
       data.email,
       data.following,

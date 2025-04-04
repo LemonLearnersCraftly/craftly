@@ -2,7 +2,6 @@
 "use client";
 import { useState } from "react";
 import CreatePostForm from "./CreatePostForm";
-import { Trash2 } from "lucide-react";
 
 export default function PostButton() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,7 +17,7 @@ export default function PostButton() {
   return (
     <>
       <button
-        className="fixed bottom-5 right-5 w-14 h-14 rounded-full bg-primary text-white flex items-center justify-center border-none shadow-lg hover:scale-105 transition-all duration-200 z-50"
+        className="post-button"
         onClick={openModal}
         aria-label="Create new post"
       >
@@ -40,18 +39,72 @@ export default function PostButton() {
       </button>
 
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[1000]">
-          <div className="bg-white rounded-lg p-5 w-[90%] max-w-[500px] relative max-h-[90vh] overflow-y-auto">
-            <button
-              className="absolute top-2.5 right-2.5 bg-transparent border-none text-2xl cursor-pointer hover:text-gray-600 transition-colors"
-              onClick={closeModal}
-            >
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <button className="close-modal" onClick={closeModal}>
               &times;
             </button>
             <CreatePostForm onPostCreated={handlePostCreated} />
           </div>
         </div>
       )}
+
+      <style jsx>{`
+        .post-button {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          width: 56px;
+          height: 56px;
+          border-radius: 50%;
+          background-color: #0070f3;
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: none;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          cursor: pointer;
+          transition: all 0.2s;
+        }
+
+        .post-button:hover {
+          transform: scale(1.05);
+          box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .modal-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: rgba(0, 0, 0, 0.5);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 1000;
+        }
+
+        .modal-content {
+          background-color: white;
+          padding: 20px;
+          border-radius: 8px;
+          width: 90%;
+          max-width: 500px;
+          position: relative;
+        }
+
+        .close-modal {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: none;
+          border: none;
+          font-size: 24px;
+          cursor: pointer;
+        }
+      `}</style>
     </>
   );
 }

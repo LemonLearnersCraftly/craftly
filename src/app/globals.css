@@ -71,51 +71,6 @@ body {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground antialiased;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    @apply bg-background text-foreground;
   }
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
-/* Custom scrollbar styles */
-::-webkit-scrollbar {
-  @apply w-2;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-muted;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-primary/50 rounded-full hover:bg-primary/70 transition-colors;
-}
-
-/* Smooth transitions */
-* {
-  @apply transition-colors duration-200;
-}
-
-/* Better focus styles */
-*:focus-visible {
-  @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
-}
-
-/* Card hover effects */
-.card-hover {
-  @apply hover:shadow-lg transition-shadow duration-200;
-}
-
-/* Button hover effects */
-.button-hover {
-  @apply hover:scale-105 transition-transform duration-200;
-}
-
-/* Input focus styles */
-.input-focus {
-  @apply focus:ring-2 focus:ring-primary/20 focus:border-primary;
 }
