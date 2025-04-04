@@ -13,7 +13,7 @@ export default function Page() {
 
       {/* Sign-In Section */}
       <div className="flex flex-col justify-center items-center flex-grow">
-        <SignIn forceRedirectUrl={'/feed'}/>
+        <SignIn />
       </div>
     </div>
   );
