@@ -2,67 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
-/* We are using Tailwind CSS since it will give us a lot of styles built in that we can use by just adding them as CSS classes.
-  More specific styling or Tailwing overrides can be done here or in other CSS files.
-*/
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
+    /* Base colors */
+    --background: 45 33% 98%;
+    --foreground: 30 6% 15%;
+
+    /* Card */
+    --card: 45 33% 98%;
+    --card-foreground: 30 6% 15%;
+
+    /* Popover */
+    --popover: 45 33% 98%;
+    --popover-foreground: 30 6% 15%;
+
+    /* Primary - Sage Green */
+    --primary: 105 26% 47%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Earthy Brown */
+    --secondary: 30 23% 54%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted */
+    --muted: 35 25% 92%;
+    --muted-foreground: 30 6% 40%;
+
+    /* Accent - Soft Lavender */
+    --accent: 267 60% 90%;
+    --accent-foreground: 267 30% 30%;
+
+    /* Destructive */
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
+
+    /* Border & Input */
+    --border: 30 16% 85%;
+    --input: 30 16% 85%;
+    --ring: 105 26% 47%;
+
+    --radius: 0.75rem;
   }
+
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
+    /* Base colors */
+    --background: 30 6% 15%;
+    --foreground: 45 33% 98%;
+
+    /* Card */
+    --card: 30 6% 18%;
+    --card-foreground: 45 33% 98%;
+
+    /* Popover */
+    --popover: 30 6% 18%;
+    --popover-foreground: 45 33% 98%;
+
+    /* Primary - Sage Green */
+    --primary: 105 26% 47%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Earthy Brown */
+    --secondary: 30 23% 54%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted */
+    --muted: 30 6% 25%;
+    --muted-foreground: 45 5% 70%;
+
+    /* Accent - Soft Lavender */
+    --accent: 267 40% 30%;
+    --accent-foreground: 267 60% 90%;
+
+    /* Destructive */
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+
+    /* Border & Input */
+    --border: 30 6% 30%;
+    --input: 30 6% 30%;
+    --ring: 105 26% 47%;
   }
 }
 
@@ -74,48 +92,140 @@ body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
-}
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  /* Handwritten font for crafting contexts */
+  .font-handwritten {
+    font-family: "Caveat", "Indie Flower", cursive;
+  }
+
+  /* Stitch-like borders */
+  .border-stitched {
+    @apply border-[3px] border-dashed border-craft-600 relative;
+    background-image: linear-gradient(
+      45deg,
+      transparent,
+      transparent 50%,
+      var(--border-color) 50%,
+      var(--border-color) 51%,
+      transparent 51%,
+      transparent 100%
+    );
+    background-size: 6px 6px;
+  }
+
+  /* Paper-like textures */
+  .bg-paper {
+    @apply bg-craft-100;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23e5e1d8' fill-opacity='0.7' fill-rule='evenodd'/%3E%3C/svg%3E");
+  }
+
+  /* Custom crafting button styles */
+  .btn-craft {
+    @apply bg-craft-500 hover:bg-craft-600 text-white font-medium py-2 px-4 rounded-md shadow-md transition-all duration-200;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-craft:active {
+    @apply transform translate-y-0.5 shadow-sm;
+  }
+
+  /* Stitched panel */
+  .panel-stitched {
+    @apply bg-craft-100 p-6 rounded-lg relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23b0a385' fill-opacity='0.15' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 5v1H0V0h5z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .panel-stitched::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px dashed rgba(176, 163, 133, 0.3);
+    border-radius: 0.5rem;
+    pointer-events: none;
+    margin: 0.5rem;
+  }
+
+  /* Yarn loading spinner */
+  .loader-yarn {
+    @apply relative w-16 h-16 rounded-full;
+    background: conic-gradient(
+      from 0deg,
+      theme("colors.yarn.500"),
+      theme("colors.yarn.300"),
+      theme("colors.yarn.100"),
+      theme("colors.yarn.300"),
+      theme("colors.yarn.500")
+    );
+    animation: spin 2s linear infinite;
+  }
+
+  .loader-yarn::before {
+    content: "";
+    @apply absolute top-1/2 left-1/2 w-10 h-10 bg-white rounded-full -translate-x-1/2 -translate-y-1/2;
+  }
+
+  .loader-yarn::after {
+    content: "";
+    @apply absolute top-0 left-1/2 w-1 h-8 bg-yarn-500 -translate-x-1/2 origin-bottom;
+    animation: loader-yarn-thread 8s linear infinite;
+  }
+
+  @keyframes loader-yarn-thread {
+    0% {
+      transform: translateX(-50%) rotate(0deg);
+    }
+    100% {
+      transform: translateX(-50%) rotate(720deg);
+    }
   }
 }
 
-/* Custom scrollbar styles */
-::-webkit-scrollbar {
-  @apply w-2;
+/* Custom scrollbar */
+@layer utilities {
+  .scrollbar-craft::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  .scrollbar-craft::-webkit-scrollbar-track {
+    @apply bg-craft-100 dark:bg-craft-800 rounded-full;
+  }
+
+  .scrollbar-craft::-webkit-scrollbar-thumb {
+    @apply bg-craft-400 hover:bg-craft-500 rounded-full transition-colors;
+  }
+
+  /* Text balance utility */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Craft-specific utilities */
+  .craft-shadow {
+    box-shadow: 0 4px 6px -1px rgba(176, 163, 133, 0.2),
+      0 2px 4px -2px rgba(176, 163, 133, 0.1);
+  }
+
+  .craft-pattern {
+    background-color: rgba(176, 163, 133, 0.1);
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23b0a385' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+  }
 }
 
-::-webkit-scrollbar-track {
-  @apply bg-muted;
+/* Animation for the stitching effect */
+.animate-stitch {
+  animation: stitch 2s linear infinite;
 }
 
-::-webkit-scrollbar-thumb {
-  @apply bg-primary/50 rounded-full hover:bg-primary/70 transition-colors;
-}
-
-/* Smooth transitions */
-* {
-  @apply transition-colors duration-200;
-}
-
-/* Better focus styles */
-*:focus-visible {
-  @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
-}
-
-/* Card hover effects */
-.card-hover {
-  @apply hover:shadow-lg transition-shadow duration-200;
-}
-
-/* Button hover effects */
-.button-hover {
-  @apply hover:scale-105 transition-transform duration-200;
-}
-
-/* Input focus styles */
-.input-focus {
-  @apply focus:ring-2 focus:ring-primary/20 focus:border-primary;
+@keyframes stitch {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 8px 8px;
+  }
 }
